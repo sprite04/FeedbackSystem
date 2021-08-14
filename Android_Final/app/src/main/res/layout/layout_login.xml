@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/purple_500"
+    android:paddingTop="10dp"
+
+    android:paddingHorizontal="40dp">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/r2s" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:fontFamily="@font/alternate_gothic"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="35dp"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Username"
+        android:fontFamily="@font/alternate_gothic"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/username_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username must have at least 1 character!"
+        android:typeface="serif"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Password"
+
+        android:inputType="textPassword"
+
+        android:fontFamily="@font/alternate_gothic"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/password_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password must have at least 1 character!"
+        android:typeface="serif"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_orange"
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_selected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/img_drop_down"
+            android:text="hhhhhhhhhhhh"
+            android:fontFamily="@font/alternate_gothic"
+            android:textSize="30sp"
+            android:typeface="serif" />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/img_drop_down"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/expand"
+            android:padding="5dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:id="@+id/sp_role"/>
+
+
+
+
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/remember_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Remember Password"
+        android:fontFamily="@font/alternate_gothic"
+        android:layout_gravity="center"
+        android:buttonTint="@color/white"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="40dp"
+        android:text="LOGIN"
+        android:fontFamily="@font/alternate_gothic"
+        android:textSize="40sp"
+        android:textColor="@color/purple_500"
+        android:background="@drawable/background_white"/>
+
+</LinearLayout>

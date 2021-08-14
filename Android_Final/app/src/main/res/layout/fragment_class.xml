@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingHorizontal="20dp">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/alternate_gothic"
+        android:id="@+id/tv_title"
+        android:text="Add Class"
+        android:gravity="center"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Class Name"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/background_border_white"
+                android:text=""
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/tv_error_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please enter class name and less than 255 character"
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Capacity"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/edt_capacity"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/background_border_white"
+                android:inputType="number"
+                android:text=""
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/tv_error_capacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please enter capicity is integer and larger than 0"
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Start Date"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/img_start_date"
+                    android:textSize="15sp"
+                    android:typeface="serif" />
+
+                <ImageView
+                    android:id="@+id/img_start_date"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentEnd="true"
+                    android:padding="5dp"
+                    android:src="@drawable/calendar" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please choose date or fill mm/dd/yyyy"
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="End Date"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:id="@+id/tv_end_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/img_end_date"
+                    android:textSize="15sp"
+                    android:typeface="serif" />
+
+                <ImageView
+                    android:id="@+id/img_end_date"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentEnd="true"
+                    android:padding="5dp"
+                    android:src="@drawable/calendar" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please choose date or fill mm/dd/yyyy"
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                android:typeface="serif" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@+id/btn_back"
+                    android:backgroundTint="@color/purple_700"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:typeface="serif" />
+
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:backgroundTint="#FF2222"
+                    android:text="Back"
+                    android:textAllCaps="false"
+                    android:typeface="serif" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_question"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="question"
+        android:id="@+id/tv_question"
+        android:textSize="14sp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rd_answer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strongly Disagree"/>
+
+        <RadioButton
+            android:id="@+id/rd_answer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disagree"/>
+
+        <RadioButton
+            android:id="@+id/rd_answer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Undecided"/>
+
+        <RadioButton
+            android:id="@+id/rd_answer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agree"/>
+
+
+        <RadioButton
+            android:id="@+id/rd_answer5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strong Agree" />
+
+    </RadioGroup>
+</LinearLayout>

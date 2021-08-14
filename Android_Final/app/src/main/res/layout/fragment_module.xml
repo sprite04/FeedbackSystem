@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingHorizontal="20dp">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/alternate_gothic"
+        android:id="@+id/tv_title"
+        android:text="Add Module List"
+        android:gravity="center"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:typeface="serif"
+                android:textSize="15sp"
+                android:text="Module Name"
+                android:layout_marginStart="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/edt_name"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:background="@drawable/background_border_white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_error_name"
+                android:text="Please enter module name and less than 255"
+                android:textColor="#F44336"
+                android:typeface="serif"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Start Date"
+                android:typeface="serif"
+                android:layout_marginStart="15dp" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_start_date"
+                    android:typeface="serif"
+                    android:textSize="15sp"
+                    android:layout_toStartOf="@id/img_start_date"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:id="@+id/img_start_date"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/calendar"
+                    android:padding="5dp"/>
+
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_error_start_date"
+                android:text="Please enter module name and less than 255"
+                android:textColor="#F44336"
+                android:typeface="serif"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="End Date"
+                android:typeface="serif"
+                android:layout_marginStart="15dp" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_end_date"
+                    android:typeface="serif"
+                    android:textSize="15sp"
+                    android:layout_toStartOf="@id/img_end_date"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:id="@+id/img_end_date"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/calendar"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_error_end_date"
+                android:text="Please enter module name and less than 255"
+                android:textColor="#F44336"
+                android:typeface="serif"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Admin ID"
+                android:layout_marginStart="15dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:id="@+id/sp_admin_id"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Feedback Title"
+                android:typeface="serif"
+                android:layout_marginStart="15dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:id="@+id/sp_feedback_title"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Feedback Start Date"
+                android:layout_marginStart="15dp" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_fb_start_date"
+                    android:typeface="serif"
+                    android:textSize="15sp"
+                    android:layout_toStartOf="@id/img_fb_start_date"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:id="@+id/img_fb_start_date"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/calendar"
+                    android:padding="5dp"/>
+
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_error_fb_start_date"
+                android:text="Please enter module name and less than 255"
+                android:textColor="#F44336"
+                android:typeface="serif"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Feedback End Date"
+                android:layout_marginStart="15dp" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_fb_end_date"
+                    android:typeface="serif"
+                    android:textSize="15sp"
+                    android:layout_toStartOf="@id/img_fb_end_date"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:id="@+id/img_fb_end_date"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/calendar"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_error_fb_end_date"
+                android:text="Please enter module name and less than 255"
+                android:textColor="#F44336"
+                android:typeface="serif"
+                android:textSize="15sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple_700"
+                    android:id="@+id/btn_save"
+                    android:text="Save"
+                    android:layout_toStartOf="@+id/btn_back"
+                    android:typeface="serif"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="10dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF2222"
+                    android:id="@+id/btn_back"
+                    android:text="Back"
+                    android:layout_alignParentEnd="true"
+                    android:typeface="serif"
+                    android:textAllCaps="false" />
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

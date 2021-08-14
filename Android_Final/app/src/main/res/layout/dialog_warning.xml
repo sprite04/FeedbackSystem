@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_dialog"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/box_important"
+            android:id="@+id/img_success"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_success"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:text="hihhhhhh"
+            android:textSize="23sp"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:text="hihhhhhh"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/tv_content"
+            android:typeface="serif"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tv_content"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple_700"
+                android:id="@+id/btn_yes"
+                android:text="Yes!"
+                android:textAllCaps="false"
+                android:typeface="serif"
+                android:layout_marginEnd="10dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple_500"
+                android:id="@+id/btn_cancel"
+                android:text="Cancel!"
+                android:typeface="serif"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

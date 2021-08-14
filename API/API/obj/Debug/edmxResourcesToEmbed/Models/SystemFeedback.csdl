@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemFeedbackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK_FB_Admin" FromRole="Admin" ToRole="Feedback" />
+    <NavigationProperty Name="Modules" Relationship="Self.FK_Module_Admin" FromRole="Admin" ToRole="Module" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="ClassID" />
+      <PropertyRef Name="ModuleID" />
+      <PropertyRef Name="TraineeID" />
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="TraineeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuestionID" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Int32" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Answer_Class" FromRole="Answer" ToRole="Class" />
+    <NavigationProperty Name="Module" Relationship="Self.FK_Answer_Module" FromRole="Answer" ToRole="Module" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
+    <NavigationProperty Name="Trainee" Relationship="Self.FK_Answer_Trainee" FromRole="Answer" ToRole="Trainee" />
+  </EntityType>
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="ClassID" />
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="TrainerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Assignment_Class" FromRole="Assignment" ToRole="Class" />
+    <NavigationProperty Name="Module" Relationship="Self.FK_Assignment_Module" FromRole="Assignment" ToRole="Module" />
+    <NavigationProperty Name="Trainer" Relationship="Self.FK_Assignment_Trainer" FromRole="Assignment" ToRole="Trainer" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Class" FromRole="Class" ToRole="Answer" />
+    <NavigationProperty Name="Assignments" Relationship="Self.FK_Assignment_Class" FromRole="Class" ToRole="Assignment" />
+    <NavigationProperty Name="Trainee_Comment" Relationship="Self.FK_TC_Class" FromRole="Class" ToRole="Trainee_Comment" />
+    <NavigationProperty Name="Trainees" Relationship="Self.Enrollment" FromRole="Class" ToRole="Trainee" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="TypeFeedbackID" Type="Int32" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK_FB_Admin" FromRole="Feedback" ToRole="Admin" />
+    <NavigationProperty Name="TypeFeedback" Relationship="Self.FK_FB_TypeFB" FromRole="Feedback" ToRole="TypeFeedback" />
+    <NavigationProperty Name="Modules" Relationship="Self.FK_Module_Feedback" FromRole="Feedback" ToRole="Module" />
+    <NavigationProperty Name="Questions" Relationship="Self.Feedback_Question" FromRole="Feedback" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="FeedbackStartTime" Type="DateTime" Precision="3" />
+    <Property Name="FeedbackEndTime" Type="DateTime" Precision="3" />
+    <Property Name="FeedbackID" Type="Int32" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK_Module_Admin" FromRole="Module" ToRole="Admin" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Module" FromRole="Module" ToRole="Answer" />
+    <NavigationProperty Name="Assignments" Relationship="Self.FK_Assignment_Module" FromRole="Module" ToRole="Assignment" />
+    <NavigationProperty Name="Feedback" Relationship="Self.FK_Module_Feedback" FromRole="Module" ToRole="Feedback" />
+    <NavigationProperty Name="Trainee_Comment" Relationship="Self.FK_TC_Module" FromRole="Module" ToRole="Trainee_Comment" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicID" Type="Int32" />
+    <Property Name="QuestionContent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+    <NavigationProperty Name="Topic" Relationship="Self.FK_Question_Topic" FromRole="Question" ToRole="Topic" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.Feedback_Question" FromRole="Question" ToRole="Feedback" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillID" />
+    </Key>
+    <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Trainers" Relationship="Self.FK_Trainer_Skill" FromRole="Skill" ToRole="Trainer" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="TopicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Topic" FromRole="Topic" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Trainee">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ActivationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Trainee" FromRole="Trainee" ToRole="Answer" />
+    <NavigationProperty Name="Trainee_Assignment" Relationship="Self.FK_TA_Trainee" FromRole="Trainee" ToRole="Trainee_Assignment" />
+    <NavigationProperty Name="Trainee_Comment" Relationship="Self.FK_TC_Trainee" FromRole="Trainee" ToRole="Trainee_Comment" />
+    <NavigationProperty Name="Classes" Relationship="Self.Enrollment" FromRole="Trainee" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Trainee_Assignment">
+    <Key>
+      <PropertyRef Name="RegistrationCode" />
+      <PropertyRef Name="TraineeID" />
+    </Key>
+    <Property Name="RegistrationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TraineeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Trainee" Relationship="Self.FK_TA_Trainee" FromRole="Trainee_Assignment" ToRole="Trainee" />
+  </EntityType>
+  <EntityType Name="Trainee_Comment">
+    <Key>
+      <PropertyRef Name="ClassID" />
+      <PropertyRef Name="ModuleID" />
+      <PropertyRef Name="TraineeID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="TraineeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_TC_Class" FromRole="Trainee_Comment" ToRole="Class" />
+    <NavigationProperty Name="Module" Relationship="Self.FK_TC_Module" FromRole="Trainee_Comment" ToRole="Module" />
+    <NavigationProperty Name="Trainee" Relationship="Self.FK_TC_Trainee" FromRole="Trainee_Comment" ToRole="Trainee" />
+  </EntityType>
+  <EntityType Name="Trainer">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IdSkill" Type="Int32" />
+    <Property Name="ActivationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsReceiveNotification" Type="Boolean" />
+    <NavigationProperty Name="Assignments" Relationship="Self.FK_Assignment_Trainer" FromRole="Trainer" ToRole="Assignment" />
+    <NavigationProperty Name="Skill" Relationship="Self.FK_Trainer_Skill" FromRole="Trainer" ToRole="Skill" />
+  </EntityType>
+  <EntityType Name="TypeFeedback">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK_FB_TypeFB" FromRole="TypeFeedback" ToRole="Feedback" />
+  </EntityType>
+  <Association Name="FK_FB_Admin">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Module_Admin">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Module" Type="Self.Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Module">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answer_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answer_Module">
+    <End Role="Module" Type="Self.Module" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answer_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answer_Trainee">
+    <End Role="Trainee" Type="Self.Trainee" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="TraineeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Assignment_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Assignment_Module">
+    <End Role="Module" Type="Self.Module" Multiplicity="1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Assignment_Trainer">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="TrainerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TC_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Trainee_Comment" Type="Self.Trainee_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Trainee_Comment">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FB_TypeFB">
+    <End Role="TypeFeedback" Type="Self.TypeFeedback" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFeedback">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="TypeFeedbackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Module_Feedback">
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="0..1" />
+    <End Role="Module" Type="Self.Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feedback">
+        <PropertyRef Name="FeedbackID" />
+      </Principal>
+      <Dependent Role="Module">
+        <PropertyRef Name="FeedbackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TC_Module">
+    <End Role="Module" Type="Self.Module" Multiplicity="1" />
+    <End Role="Trainee_Comment" Type="Self.Trainee_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="Trainee_Comment">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Topic">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainer_Skill">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="SkillID" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="IdSkill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TA_Trainee">
+    <End Role="Trainee" Type="Self.Trainee" Multiplicity="1" />
+    <End Role="Trainee_Assignment" Type="Self.Trainee_Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Trainee_Assignment">
+        <PropertyRef Name="TraineeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TC_Trainee">
+    <End Role="Trainee" Type="Self.Trainee" Multiplicity="1" />
+    <End Role="Trainee_Comment" Type="Self.Trainee_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Trainee_Comment">
+        <PropertyRef Name="TraineeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment">
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <End Role="Trainee" Type="Self.Trainee" Multiplicity="*" />
+  </Association>
+  <Association Name="Feedback_Question">
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SystemFeedback" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Assignments" EntityType="Self.Assignment" />
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="Modules" EntityType="Self.Module" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="Topics" EntityType="Self.Topic" />
+    <EntitySet Name="Trainees" EntityType="Self.Trainee" />
+    <EntitySet Name="Trainee_Assignment" EntityType="Self.Trainee_Assignment" />
+    <EntitySet Name="Trainee_Comment" EntityType="Self.Trainee_Comment" />
+    <EntitySet Name="Trainers" EntityType="Self.Trainer" />
+    <EntitySet Name="TypeFeedbacks" EntityType="Self.TypeFeedback" />
+    <AssociationSet Name="FK_FB_Admin" Association="Self.FK_FB_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Module_Admin" Association="Self.FK_Module_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Module" EntitySet="Modules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answer_Class" Association="Self.FK_Answer_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answer_Module" Association="Self.FK_Answer_Module">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answer_Question" Association="Self.FK_Answer_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answer_Trainee" Association="Self.FK_Answer_Trainee">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Assignment_Class" Association="Self.FK_Assignment_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Assignment_Module" Association="Self.FK_Assignment_Module">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Assignment_Trainer" Association="Self.FK_Assignment_Trainer">
+      <End Role="Trainer" EntitySet="Trainers" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TC_Class" Association="Self.FK_TC_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Trainee_Comment" EntitySet="Trainee_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FB_TypeFB" Association="Self.FK_FB_TypeFB">
+      <End Role="TypeFeedback" EntitySet="TypeFeedbacks" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Module_Feedback" Association="Self.FK_Module_Feedback">
+      <End Role="Feedback" EntitySet="Feedbacks" />
+      <End Role="Module" EntitySet="Modules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TC_Module" Association="Self.FK_TC_Module">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="Trainee_Comment" EntitySet="Trainee_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Topic" Association="Self.FK_Question_Topic">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainer_Skill" Association="Self.FK_Trainer_Skill">
+      <End Role="Skill" EntitySet="Skills" />
+      <End Role="Trainer" EntitySet="Trainers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TA_Trainee" Association="Self.FK_TA_Trainee">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Trainee_Assignment" EntitySet="Trainee_Assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TC_Trainee" Association="Self.FK_TC_Trainee">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Trainee_Comment" EntitySet="Trainee_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment" Association="Self.Enrollment">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Trainee" EntitySet="Trainees" />
+    </AssociationSet>
+    <AssociationSet Name="Feedback_Question" Association="Self.Feedback_Question">
+      <End Role="Feedback" EntitySet="Feedbacks" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

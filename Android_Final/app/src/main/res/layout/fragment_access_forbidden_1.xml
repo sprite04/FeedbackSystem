@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_marginTop="90dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Access Forbidden"
+        android:fontFamily="@font/alternate_gothic"
+        android:gravity="center"
+        android:textColor="@color/purple_500"
+        android:textSize="50sp"/>
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="23sp"
+        android:typeface="serif"
+        android:textColor="@color/purple_500"
+        android:text="We are sorry!\nYou do NOT have permission access this link!"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/background_orange"
+        android:text="Login"
+        android:textSize="23sp"
+        android:typeface="serif"
+        android:paddingVertical="15sp"
+        android:paddingHorizontal="40dp"/>
+</LinearLayout>

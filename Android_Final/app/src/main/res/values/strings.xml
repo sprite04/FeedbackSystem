@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ANDROID_ETPJ</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!--menu-->
+    <string name="menu_home">HOME PAGE</string>
+    <string name="menu_assignment">ASSIGNMENT</string>
+    <string name="menu_class">CLASS</string>
+    <string name="menu_module">MODULE</string>
+    <string name="menu_enrollment">ENROLLMENT</string>
+    <string name="menu_feedback">FEEDBACK</string>
+    <string name="menu_result">RESULT</string>
+    <string name="menu_question">QUESTION</string>
+    <string name="menu_contact">CONTACT</string>
+    <string name="menu_join">JOIN</string>
+    <string name="menu_logout">LOG OUT</string>
+
+    <string name="tv_assignment">Assignment</string>
+
+    <string name = "waring_tile">Login Failed, Check Your</string>
+    <string name = "waring_content">Login Detail</string>
+    <string name = "yes_btn">Yes!</string>
+
+
+</resources>

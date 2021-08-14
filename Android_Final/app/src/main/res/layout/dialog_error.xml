@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_dialog"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/box_important"
+            android:id="@+id/img_success"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_success"
+            android:textSize="23sp"
+            android:text="hihhhhhh"
+            android:typeface="serif"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/tv_title"/>
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF0808"
+            android:layout_below="@+id/tv_title"
+            android:typeface="serif"
+            android:id="@+id/btn_ok_error"
+            android:text="OK"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

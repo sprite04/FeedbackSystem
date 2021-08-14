@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingHorizontal="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/alternate_gothic"
+        android:id="@+id/tv_title"
+        android:text="Edit Assignmnet"
+        android:gravity="center"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Class ID"
+                android:layout_marginStart="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/tv_class_id"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:background="@drawable/background_border_white"
+                android:text="Class id"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Class Name"
+                android:layout_marginStart="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/tv_class_name"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:background="@drawable/background_border_white"
+                android:text="Class name"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Module ID"
+                android:layout_marginStart="15dp" />id
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/tv_module_id"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:background="@drawable/background_border_white"
+                android:text="Module id"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Module Name"
+                android:layout_marginStart="15dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/tv_module_name"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:background="@drawable/background_border_white"
+                android:text="Module name"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="serif"
+                android:text="Trainer ID"
+                android:layout_marginStart="15dp" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:id="@+id/trainer_id"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple_700"
+                    android:id="@+id/btn_save"
+                    android:text="Save"
+                    android:layout_toStartOf="@+id/btn_back"
+                    android:typeface="serif"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="10dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF2222"
+                    android:id="@+id/btn_back"
+                    android:text="Back"
+                    android:layout_alignParentEnd="true"
+                    android:typeface="serif"
+                    android:textAllCaps="false" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
